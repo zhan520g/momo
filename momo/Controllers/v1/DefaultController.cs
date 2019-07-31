@@ -2,53 +2,47 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace momo.Controllers
+namespace momo.Controllers.v1
 {
-    /// <summary>
-    /// 样例
-    /// </summary>
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class DefaultController : ControllerBase
     {
         /// <summary>
-        /// 获取接口类
+        /// 获取样例数据
         /// </summary>
         /// <returns></returns>
-        // GET api/values
+        // GET: api/Default
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        /// <summary>
-        /// 根据id获取接口
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        // GET: api/Default/5
+        [HttpGet("{id}", Name = "Get")]
+        public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
+        // POST: api/Default
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT: api/Default/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

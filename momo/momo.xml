@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>momo</name>
+    </assembly>
+    <members>
+        <member name="M:momo.Controllers.v1.DefaultController.Get">
+            <summary>
+            获取样例数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:momo.Controllers.v2.Default2Controller.Get">
+            <summary>
+            获取default2的数据
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
