@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "momo", "momo\momo.csproj", "{B57021CF-CB31-4735-A76C-FC2C8D484FD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "momo", "momo\momo.csproj", "{B57021CF-CB31-4735-A76C-FC2C8D484FD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C281EF36-0DD4-415F-B947-A7424BE2522D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "momo.Application", "momo.Application\momo.Application.csproj", "{C39CB2BA-C466-47E0-B9EA-40BB66DBA54B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domian", "Domian", "{FDC7CA6B-4C73-4DA7-B038-077EC666C687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "momo.Domain", "momo.Domain\momo.Domain.csproj", "{D0BC6D18-8E8D-41EC-9920-A9261CE938E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{A79A1EF2-1892-44EF-A5EE-FA1C5F215738}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "momo.Infrastructure", "momo.Infrastructure\momo.Infrastructure.csproj", "{4DC840E1-36CA-4B96-9551-40DD7F42661C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{DD88CE3E-D6B9-4E69-A00E-A18B4817EC84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "momo.Entity", "momo.Entity\momo.Entity.csproj", "{06F5EF0F-E521-4362-BB9C-76380B477F9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +31,31 @@ Global
 		{B57021CF-CB31-4735-A76C-FC2C8D484FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B57021CF-CB31-4735-A76C-FC2C8D484FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B57021CF-CB31-4735-A76C-FC2C8D484FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39CB2BA-C466-47E0-B9EA-40BB66DBA54B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39CB2BA-C466-47E0-B9EA-40BB66DBA54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39CB2BA-C466-47E0-B9EA-40BB66DBA54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39CB2BA-C466-47E0-B9EA-40BB66DBA54B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0BC6D18-8E8D-41EC-9920-A9261CE938E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0BC6D18-8E8D-41EC-9920-A9261CE938E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0BC6D18-8E8D-41EC-9920-A9261CE938E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0BC6D18-8E8D-41EC-9920-A9261CE938E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC840E1-36CA-4B96-9551-40DD7F42661C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC840E1-36CA-4B96-9551-40DD7F42661C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC840E1-36CA-4B96-9551-40DD7F42661C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC840E1-36CA-4B96-9551-40DD7F42661C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F5EF0F-E521-4362-BB9C-76380B477F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F5EF0F-E521-4362-BB9C-76380B477F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F5EF0F-E521-4362-BB9C-76380B477F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F5EF0F-E521-4362-BB9C-76380B477F9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C39CB2BA-C466-47E0-B9EA-40BB66DBA54B} = {C281EF36-0DD4-415F-B947-A7424BE2522D}
+		{D0BC6D18-8E8D-41EC-9920-A9261CE938E8} = {FDC7CA6B-4C73-4DA7-B038-077EC666C687}
+		{4DC840E1-36CA-4B96-9551-40DD7F42661C} = {A79A1EF2-1892-44EF-A5EE-FA1C5F215738}
+		{06F5EF0F-E521-4362-BB9C-76380B477F9C} = {DD88CE3E-D6B9-4E69-A00E-A18B4817EC84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C9903AD-66F9-4B11-A286-6807A9495C8E}
