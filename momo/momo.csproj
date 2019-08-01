@@ -19,11 +19,22 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="3.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
     <PackageReference Include="NLog" Version="4.6.6" />
     <PackageReference Include="NLog.Mongo" Version="4.6.0.68" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="momo.Application">
+      <HintPath>..\momo.Application\bin\Debug\netcoreapp2.2\momo.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="momo.Domain">
+      <HintPath>..\momo.Domain\bin\Debug\netcoreapp2.2\momo.Domain.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

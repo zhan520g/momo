@@ -10,11 +10,94 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:momo.Controllers.v1.SecretController">
+            <summary>
+            授权接口
+            </summary>
+        </member>
+        <member name="F:momo.Controllers.v1.SecretController._jwtApp">
+            <summary>
+            Jwt 服务
+            </summary>
+        </member>
+        <member name="F:momo.Controllers.v1.SecretController._logger">
+            <summary>
+            日志记录服务
+            </summary>
+        </member>
+        <member name="F:momo.Controllers.v1.SecretController._secretApp">
+            <summary>
+            用户服务
+            </summary>
+        </member>
+        <member name="P:momo.Controllers.v1.SecretController._configuration">
+            <summary>
+            配置信息
+            </summary>
+        </member>
+        <member name="M:momo.Controllers.v1.SecretController.#ctor(Microsoft.Extensions.Logging.ILogger{momo.Controllers.v1.SecretController},Microsoft.Extensions.Configuration.IConfiguration,momo.Application.Authorization.Jwt.IJwtAppService,momo.Application.Authorization.Secret.ISecretAppService)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="logger"></param>
+            <param name="configuration"></param>
+            <param name="jwtApp"></param>
+            <param name="secretApp"></param>
+        </member>
+        <member name="M:momo.Controllers.v1.SecretController.CancelAccessToken">
+            <summary>
+            停用 Jwt 授权数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:momo.Controllers.v1.SecretController.Login(momo.Application.Authorization.Secret.Dto.SecretDto)">
+            <summary>
+            获取 Jwt 授权数据
+            </summary>
+            <param name="dto">授权用户信息</param>
+        </member>
+        <member name="M:momo.Controllers.v1.SecretController.RefreshAccessTokenAsync(momo.Application.Authorization.Secret.Dto.SecretDto)">
+            <summary>
+            刷新 Jwt 授权数据
+            </summary>
+            <param name="dto">刷新授权用户信息</param>
+            <returns></returns>
+        </member>
         <member name="M:momo.Controllers.v2.Default2Controller.Get">
             <summary>
             获取default2的数据
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:momo.Handles.PolicyHandler.Schemes">
+            <summary>
+            授权方式（cookie, bearer, oauth, openid）
+            </summary>
+        </member>
+        <member name="F:momo.Handles.PolicyHandler._jwtApp">
+            <summary>
+            jwt 服务
+            </summary>
+        </member>
+        <member name="M:momo.Handles.PolicyHandler.#ctor(Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,momo.Application.Authorization.Jwt.IJwtAppService)">
+            <summary>
+            ctor
+            </summary>
+            <param name="schemes"></param>
+            <param name="jwtApp"></param>
+        </member>
+        <member name="M:momo.Handles.PolicyHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,momo.Handles.PolicyRequirement)">
+            <summary>
+            //授权处理 ,async 这个标识可以解决很多问题,.............
+            </summary>
+            <param name="context"></param>
+            <param name="requirement"></param>
+            <returns></returns>
+        </member>
+        <member name="T:momo.Handles.PolicyHandler.Menu">
+            <summary>
+            测试菜单类
+            </summary>
         </member>
     </members>
 </doc>

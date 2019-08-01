@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="momo.Entity">
+      <HintPath>..\momo.Entity\bin\Debug\netcoreapp2.2\momo.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="momo.Infrastructure">
+      <HintPath>..\momo.Infrastructure\bin\Debug\netcoreapp2.2\momo.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

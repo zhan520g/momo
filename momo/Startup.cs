@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using momo.Handles;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.Caching.Redis;
+using Microsoft.IdentityModel.Tokens;
 
 namespace momo
 {
@@ -28,6 +32,52 @@ namespace momo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region  授权服务
+            string issuer = Configuration["Jwt:Issuer"];
+            string audience = Configuration["Jwt:Audience"];
+            string expire = Configuration["Jwt:ExpireMinutes"];
+            TimeSpan expiration = TimeSpan.FromMinutes(Convert.ToDouble(expire));
+            SecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecurityKey"]));
+            services.AddAuthorization(options =>
+            {
+                //1、Definition authorization policy
+                options.AddPolicy("Permission",
+                   policy => policy.Requirements.Add(new PolicyRequirement()));
+            }).AddAuthentication(s =>
+            {
+                //2、Authentication
+                s.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                s.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                s.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(s =>
+            {
+                //3、Use Jwt bearer 
+                s.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = issuer,
+                    ValidAudience = audience,
+                    IssuerSigningKey = key,
+                    ClockSkew = expiration,
+                    ValidateLifetime = true
+                };
+                s.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        //Token expired
+                        if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                        {
+                            context.Response.Headers.Add("Token-Expired", "true");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+            });
+
+            //DI handler process function
+            services.AddSingleton<IAuthorizationHandler, PolicyHandler>();
+            #endregion
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerGen(s =>
             {
@@ -68,7 +118,7 @@ namespace momo
 
                 });
 
-                //接口说明
+                //接口说明配置
                 //Add comments description
                 var basePath = Path.GetDirectoryName(AppContext.BaseDirectory);//get application located directory
                 var apiPath = Path.Combine(basePath, "momo.xml");
@@ -76,7 +126,20 @@ namespace momo
                 s.IncludeXmlComments(apiPath, true);
                 //s.IncludeXmlComments(dtoPath, true);
 
-               
+                //Add Jwt Authorize to http header
+                //配置 Swagger 从而使 Swagger 可以支持我们的权限验证方式。
+                s.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",//Jwt default param name
+                    In = "header",//Jwt store address
+                    Type = "apiKey"//Security scheme type
+                });
+                //Add authentication type
+                s.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+        {
+            { "Bearer", new string[] { } }
+        });
             });
             services.AddApiVersioning(o =>
             {
@@ -89,7 +152,24 @@ namespace momo
             {
                 option.GroupNameFormat = "'v'VVVV";//api group name
                 option.AssumeDefaultVersionWhenUnspecified = true;//whether provide a service API version
-            }); ;
+            });
+
+            //采用反射的方式，批量的将程序集内的接口与其实现类进行注入。
+            Assembly assembly = Assembly.Load("momo.Application");
+            foreach (var implement in assembly.GetTypes())
+            {
+                Type[] interfaceType = implement.GetInterfaces();
+                foreach (var service in interfaceType)
+                {
+                    services.AddTransient(service, implement);
+                }
+            }
+
+            //在停用 token 的代码中，我们使用了 Redis 去保存停用的 token 信息，因此，我们需要配置我们的 Redis 连接。
+            services.AddDistributedRedisCache(r =>
+            {
+                r.Configuration = Configuration["Redis:ConnectionString"];
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -104,13 +184,13 @@ namespace momo
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            
+
             app.UseHttpsRedirection();
             app.UseMvc();
 
             //使用Swagger
             app.UseSwagger();
-            app.UseSwaggerUI(s=>
+            app.UseSwaggerUI(s =>
             {
                 //版本控制
                 // s.SwaggerEndpoint("/swagger/v1/swagger.json", "momo API V1.0");
