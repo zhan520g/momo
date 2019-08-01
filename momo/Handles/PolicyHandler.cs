@@ -34,7 +34,7 @@ namespace momo.Handles
             _jwtApp = jwtApp;
         }
         /// <summary>
-        /// //授权处理 ,async 这个标识可以解决很多问题,.............
+        /// //授权处理 ,async 这个标识可以解决很多问题,.............探究一下
         /// </summary>
         /// <param name="context"></param>
         /// <param name="requirement"></param>

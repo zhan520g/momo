@@ -80,7 +80,7 @@ namespace momo.Controllers.v1
         /// </summary>
         /// <param name="dto">授权用户信息</param>
         [HttpPost("token")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IActionResult Login([FromBody] SecretDto dto)
         {
             //Todo：获取用户信息

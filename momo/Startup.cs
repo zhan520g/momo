@@ -155,13 +155,20 @@ namespace momo
             });
 
             //采用反射的方式，批量的将程序集内的接口与其实现类进行注入。
-            Assembly assembly = Assembly.Load("momo.Application");
-            foreach (var implement in assembly.GetTypes())
+            string assemblies = Configuration["Assembly:FunctionAssembly"];
+            if (!string.IsNullOrEmpty(assemblies))
             {
-                Type[] interfaceType = implement.GetInterfaces();
-                foreach (var service in interfaceType)
+                foreach (var item in assemblies.Split('|'))
                 {
-                    services.AddTransient(service, implement);
+                    Assembly assembly = Assembly.Load(item);
+                    foreach (var implement in assembly.GetTypes())
+                    {
+                        Type[] interfaceType = implement.GetInterfaces();
+                        foreach (var service in interfaceType)
+                        {
+                            services.AddTransient(service, implement);
+                        }
+                    }
                 }
             }
 
