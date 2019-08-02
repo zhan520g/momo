@@ -17,6 +17,8 @@ using momo.Handles;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.Extensions.Caching.Redis;
 using Microsoft.IdentityModel.Tokens;
+using momo.Infrastructure.Dapper;
+using momo.Middleware;
 
 namespace momo
 {
@@ -177,6 +179,10 @@ namespace momo
             {
                 r.Configuration = Configuration["Redis:ConnectionString"];
             });
+
+
+            //DI Sql Data
+            services.AddTransient<IDataRepository, DataRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -192,8 +198,14 @@ namespace momo
                 app.UseHsts();
             }
 
+            //Enable Authentication
+            app.UseAuthentication();
+
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            //Load Sql Data
+            app.UseDapper();
 
             //使用Swagger
             app.UseSwagger();

@@ -31,7 +31,6 @@ namespace momo
             {
                 LogManager.Shutdown();
             }
-
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

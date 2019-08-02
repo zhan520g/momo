@@ -89,7 +89,7 @@ namespace momo.Application.Authorization.Jwt
             //签发一个加密后的用户信息凭证，用来标识用户的身份
             _httpContextAccessor.HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, principal);
 
-            //var result  =_httpContextAccessor.HttpContext.AuthenticateAsync(JwtBearerDefaults.AuthenticationScheme);
+            var e= _httpContextAccessor.HttpContext.RequestServices.GetService(typeof(IAuthenticationService));
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

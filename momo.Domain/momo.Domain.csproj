@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Authorization\Secret\Repository\SecretApp.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Authorization\Secret\Repository\SecretApp.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="momo.Entity">
       <HintPath>..\momo.Entity\bin\Debug\netcoreapp2.2\momo.Entity.dll</HintPath>
     </Reference>

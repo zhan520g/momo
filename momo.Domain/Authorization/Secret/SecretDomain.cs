@@ -16,18 +16,15 @@ namespace momo.Domain.Authorization.Secret
         /// </summary>
         private readonly IDataRepository _repository;
 
-        public SecretDomain()
+       
+        // <summary>
+        // ctor
+        // </summary>
+        // <param name = "repository" ></ param >
+        public SecretDomain(IDataRepository repository)
         {
-
+            _repository = repository;
         }
-        /// <summary>
-        /// ctor
-        /// </summary>
-        /// <param name="repository"></param>
-        //public SecretDomain(IDataRepository repository)
-        //{
-        //    _repository = repository;
-        //}
 
         #endregion
 

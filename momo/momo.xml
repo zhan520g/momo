@@ -50,7 +50,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:momo.Controllers.v1.SecretController.Login(momo.Application.Authorization.Secret.Dto.SecretDto)">
+        <member name="M:momo.Controllers.v1.SecretController.LoginAsync(momo.Application.Authorization.Secret.Dto.SecretDto)">
             <summary>
             获取 Jwt 授权数据
             </summary>
@@ -98,6 +98,33 @@
             <summary>
             测试菜单类
             </summary>
+        </member>
+        <member name="T:momo.Handles.PolicyRequirement">
+            <summary>
+            自定义授权策略 
+            </summary>
+        </member>
+        <member name="M:momo.Middleware.DapperMiddleware.#ctor(momo.Infrastructure.Dapper.IDataRepository,Microsoft.Extensions.Logging.ILogger{momo.Middleware.DapperMiddleware},Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            ctor
+            </summary>
+            <param name="repository"></param>
+            <param name="logger"></param>
+            <param name="request"></param>
+        </member>
+        <member name="M:momo.Middleware.DapperMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            注入中间件到HttpContext中
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:momo.Middleware.DapperMiddlewareExtensions.UseDapper(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            调用中间件
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
