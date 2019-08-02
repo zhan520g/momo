@@ -88,7 +88,7 @@
         </member>
         <member name="M:momo.Handles.PolicyHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,momo.Handles.PolicyRequirement)">
             <summary>
-            //授权处理 ,async 这个标识可以解决很多问题,.............
+            //授权处理 ,async 这个标识可以解决很多问题,.............探究一下
             </summary>
             <param name="context"></param>
             <param name="requirement"></param>

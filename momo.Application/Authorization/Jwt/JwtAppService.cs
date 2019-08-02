@@ -17,7 +17,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace momo.Application.Authorization.Jwt
 {
-   public  class JwtAppService : IJwtAppService
+    public class JwtAppService : IJwtAppService
     {
         #region Initialize
 
@@ -77,16 +77,19 @@ namespace momo.Application.Authorization.Jwt
             //将用户信息添加到 Claim 中
             var identity = new ClaimsIdentity(JwtBearerDefaults.AuthenticationScheme);
 
-            IEnumerable<Claim> claims = new Claim[] {
+              IEnumerable<Claim> claims = new Claim[] {
               new Claim(ClaimTypes.Name,dto.UserName),
               new Claim(ClaimTypes.Role,dto.Role.ToString()),
               new Claim(ClaimTypes.Email,dto.Email),
               new Claim(ClaimTypes.Expiration,expiresAt.ToString())
-         };
+            };
             identity.AddClaims(claims);
 
+            var principal = new ClaimsPrincipal(identity);
             //签发一个加密后的用户信息凭证，用来标识用户的身份
-            _httpContextAccessor.HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
+            _httpContextAccessor.HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, principal);
+
+            //var result  =_httpContextAccessor.HttpContext.AuthenticateAsync(JwtBearerDefaults.AuthenticationScheme);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -213,4 +216,4 @@ namespace momo.Application.Authorization.Jwt
 
         #endregion
     }
-} 
+}

@@ -94,6 +94,7 @@ namespace momo.Handles
                     //判断是否过期
                     if (DateTime.Parse(httpContext.User.Claims.SingleOrDefault(s => s.Type == ClaimTypes.Expiration).Value) >= DateTime.UtcNow)
                     {
+                        //允许此标记通过,并将挂起的状态删除
                         context.Succeed(requirement);
                     }
                     else

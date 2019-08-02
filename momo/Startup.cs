@@ -40,7 +40,7 @@ namespace momo
             SecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecurityKey"]));
             services.AddAuthorization(options =>
             {
-                //1、Definition authorization policy
+                //1、Definition authorization policy, 一旦标识了Permission,将挂起请求,直到认证授权通过
                 options.AddPolicy("Permission",
                    policy => policy.Requirements.Add(new PolicyRequirement()));
             }).AddAuthentication(s =>
