@@ -6,3 +6,4 @@ ORM：Dapper</br>
 权限验证：权限验证：基于 Jwt 的角色权限验证</br>
 前端框架：Vue.js + Element UI</br>
 日志记录：nlog + MongoDB
+环境: docker
