@@ -132,14 +132,15 @@ namespace momo.Controllers.v1
         public async Task<IActionResult> RefreshAccessTokenAsync([FromBody] SecretDto dto)
         {
             //Todo：获取用户信息
-            var user = new UserDto
-            {
-                Id = Guid.NewGuid(),
-                UserName = "yuiter",
-                Role = Guid.Empty,
-                Email = "yuiter@yuiter.com",
-                Phone = "13912345678",
-            };
+            //var user = new UserDto
+            //{
+            //    Id = Guid.NewGuid(),
+            //    UserName = "yuiter",
+            //    Role = Guid.Empty,
+            //    Email = "yuiter@yuiter.com",
+            //    Phone = "13912345678",
+            //};
+            var user = await _secretApp.GetCurrentUserAsync(dto.Account, dto.Password);
 
             if (user == null)
                 return Ok(new JwtResponseDto
