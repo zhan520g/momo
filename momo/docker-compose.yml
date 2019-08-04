@@ -11,29 +11,29 @@ services:
     volumes:
       - /usr/mysql:/var/lib/mysql
     networks:
-      - psu-net
+      - momo-net
 
-  psu.site:
-    build: /usr/wwwroot/psu/
+  momo:
+    build: /usr/wwwroot/momo/
     restart: always
     depends_on:
       - docker.mysql
     networks:
-      - psu-net
+      - momo-net
 
   docker.nginx:
     image: nginx
     ports:
-      - "80:80"
+      - "8080:8080"
       - "443:443"
     restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     links:
-      - psu.site
+      - momo
     networks:
-      - psu-net
+      - momo-net
 
 networks:
-  psu-net:
+  momo-net:
     driver: bridge

@@ -1,7 +1,7 @@
 FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8079
+EXPOSE 44334
 #
 #FROM microsoft/dotnet:2.2-sdk AS build
 #WORKDIR /src
@@ -18,7 +18,7 @@ EXPOSE 443
 #FROM build AS publish
 #RUN dotnet publish "momo.csproj" -c Release -o /app
 #
-#FROM base AS final
-#WORKDIR /app
-#COPY --from=publish /app .
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "momo.dll"]
