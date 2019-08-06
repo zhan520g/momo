@@ -84,12 +84,16 @@ namespace momo.Application.Authorization.Jwt
               new Claim(ClaimTypes.Expiration,expiresAt.ToString())
             };
             identity.AddClaims(claims);
-
+            var authProperties = new AuthenticationProperties
+            {
+                AllowRefresh = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),//24
+            };
             var principal = new ClaimsPrincipal(identity);
             //签发一个加密后的用户信息凭证，用来标识用户的身份
-            _httpContextAccessor.HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, principal);
+            _httpContextAccessor.HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, principal, authProperties);
 
-            var e= _httpContextAccessor.HttpContext.RequestServices.GetService(typeof(IAuthenticationService));
+            //var e= _httpContextAccessor.HttpContext.RequestServices.GetService(typeof(IAuthenticationService));
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

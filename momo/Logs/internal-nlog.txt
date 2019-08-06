@@ -1,0 +1,52 @@
+2019-08-06 14:13:25.5722 Info Message Template Auto Format enabled
+2019-08-06 14:13:25.6272 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-06 14:13:25.6272 Info Loading assembly: NLog.Mongo
+2019-08-06 14:13:26.9683 Info Adding target FileTarget(Name=allfile)
+2019-08-06 14:13:27.1143 Info Adding target FileTarget(Name=ownFile-web)
+2019-08-06 14:13:27.1351 Info Adding target MongoTarget(Name=mongo)
+2019-08-06 14:13:27.3188 Info Found 71 configuration items
+2019-08-06 14:13:29.0044 Info Creating MongoDB collection Logs in database test
+2019-08-06 14:13:34.1022 Info Shutdown() called. Logger closing...
+2019-08-06 14:13:34.1022 Info Closing old configuration.
+2019-08-06 14:13:34.1265 Info Logger has been closed down.
+2019-08-06 14:13:34.1265 Info AppDomain Shutting down. Logger closing...
+2019-08-06 14:13:34.1508 Info Logger has been shut down.
+2019-08-06 14:14:26.8853 Info Message Template Auto Format enabled
+2019-08-06 14:14:26.9254 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-06 14:14:26.9254 Info Loading assembly: NLog.Mongo
+2019-08-06 14:14:27.0556 Info Adding target FileTarget(Name=allfile)
+2019-08-06 14:14:27.0653 Info Adding target FileTarget(Name=ownFile-web)
+2019-08-06 14:14:27.0653 Info Adding target MongoTarget(Name=mongo)
+2019-08-06 14:14:27.1231 Info Found 71 configuration items
+2019-08-06 14:14:27.8157 Info Creating MongoDB collection Logs in database test
+2019-08-06 14:14:32.9165 Info Shutdown() called. Logger closing...
+2019-08-06 14:14:32.9165 Info Closing old configuration.
+2019-08-06 14:14:32.9289 Info Logger has been closed down.
+2019-08-06 14:14:32.9289 Info AppDomain Shutting down. Logger closing...
+2019-08-06 14:14:32.9289 Info Logger has been shut down.
+2019-08-06 14:14:55.3724 Info Message Template Auto Format enabled
+2019-08-06 14:14:55.4035 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-06 14:14:55.4035 Info Loading assembly: NLog.Mongo
+2019-08-06 14:14:55.5428 Info Adding target FileTarget(Name=allfile)
+2019-08-06 14:14:55.5674 Info Adding target FileTarget(Name=ownFile-web)
+2019-08-06 14:14:55.5674 Info Adding target MongoTarget(Name=mongo)
+2019-08-06 14:14:55.6266 Info Found 71 configuration items
+2019-08-06 14:14:56.3866 Info Creating MongoDB collection Logs in database test
+2019-08-06 14:15:01.2612 Info Shutdown() called. Logger closing...
+2019-08-06 14:15:01.2612 Info Closing old configuration.
+2019-08-06 14:15:01.2878 Info Logger has been closed down.
+2019-08-06 14:15:01.2878 Info AppDomain Shutting down. Logger closing...
+2019-08-06 14:15:01.2970 Info Logger has been shut down.
+2019-08-06 14:15:47.9619 Info Message Template Auto Format enabled
+2019-08-06 14:15:47.9980 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-06 14:15:48.0083 Info Loading assembly: NLog.Mongo
+2019-08-06 14:15:48.5066 Info Adding target FileTarget(Name=allfile)
+2019-08-06 14:15:48.6096 Info Adding target FileTarget(Name=ownFile-web)
+2019-08-06 14:15:48.6335 Info Adding target MongoTarget(Name=mongo)
+2019-08-06 14:15:48.7405 Info Found 71 configuration items
+2019-08-06 14:15:49.0947 Info Creating MongoDB collection Logs in database test
+2019-08-06 14:15:53.8204 Info Shutdown() called. Logger closing...
+2019-08-06 14:15:53.8204 Info Closing old configuration.
+2019-08-06 14:15:53.8340 Info Logger has been closed down.
+2019-08-06 14:15:53.8340 Info AppDomain Shutting down. Logger closing...
+2019-08-06 14:15:53.8459 Info Logger has been shut down.

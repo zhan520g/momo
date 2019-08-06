@@ -36,7 +36,7 @@ namespace momo
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
              .UseStartup<Startup>()
-             .UseUrls("http://*:8081")
+             .UseUrls("http://*:5000")
              .ConfigureLogging(logging =>
              {
                  logging.ClearProviders();//移除其它已经注册的日志处理程序

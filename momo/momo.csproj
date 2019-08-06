@@ -44,10 +44,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="nlog -windows.config">
+    <Content Update="nlog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="nlog.config">
+    <Content Update="nlog-centos.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
