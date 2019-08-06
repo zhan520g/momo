@@ -10,20 +10,29 @@ services:
       - MYSQL_ROOT_PASSWORD=123456@sql
     volumes:
       - /usr/mysql:/var/lib/mysql
+    networks:
+      - momo-net
 
   momo:
     build: /usr/wwwroot/momo/
     restart: always
     depends_on:
       - docker.mysql
+    networks:
+      - momo-net
 
   docker.nginx:
     image: nginx
     ports:
-      - "8081:8081"
+      - "8086:8086"
     restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     links:
       - momo
+    networks:
+      - momo-net
 
+networks:
+  momo-net:
+    driver: bridge

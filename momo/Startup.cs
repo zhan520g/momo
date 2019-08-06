@@ -98,7 +98,7 @@ namespace momo
                             Email = "172610800@qq.com",
                             Url = "https://yuiter.com"
                         },
-                        Description = "A front-background project build by ASP.NET Core 2.1 and Vue",
+                        Description = "A front-background project build by ASP.NET Core 2.2 and Vue",
                         Title = "momo",
                         Version = description.ApiVersion.ToString(),
                         License = new License

@@ -1,6 +1,6 @@
-FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
+FROM microsoft/dotnet:latest
 WORKDIR /app
-EXPOSE 8079
+EXPOSE 8081
 WORKDIR /app
 COPY . /app
 ENTRYPOINT ["dotnet", "momo.dll"]
