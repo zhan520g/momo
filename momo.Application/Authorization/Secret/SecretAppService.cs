@@ -1,4 +1,5 @@
-﻿using momo.Application.Authorization.Secret.Dto;
+﻿using AutoMapper;
+using momo.Application.Authorization.Secret.Dto;
 using momo.Domain.Authorization.Secret;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,24 @@ namespace momo.Application.Authorization.Secret
         /// </summary>
         private readonly ISecretDomain _secret;
 
-        /// <summary>
-        /// ctor
-        /// </summary>
-        /// <param name="secret"></param>
+        private readonly IMapper _mapper;
+
+
         public SecretAppService(ISecretDomain secret)
         {
             _secret = secret;
         }
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="secret"></param>
+        public SecretAppService(ISecretDomain secret,IMapper mapper)
+        {
+            _mapper = mapper;
+            _secret = secret;
+        }
+
+
 
         #endregion
 
@@ -41,11 +52,7 @@ namespace momo.Application.Authorization.Secret
             var user = await _secret.GetUserForLoginAsync(account, password);
 
             //Todo：AutoMapper 做实体转换
-            var userDto = new UserDto()
-            {
-                UserName = user.Name,
-                Id = user.Id
-            };
+            var userDto = _mapper.Map<UserDto>(user); //映射
             return userDto;
         }
 

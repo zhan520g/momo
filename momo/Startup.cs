@@ -19,6 +19,7 @@ using Microsoft.Extensions.Caching.Redis;
 using Microsoft.IdentityModel.Tokens;
 using momo.Infrastructure.Dapper;
 using momo.Middleware;
+using AutoMapper;
 
 namespace momo
 {
@@ -180,7 +181,7 @@ namespace momo
                 r.Configuration = Configuration["Redis:ConnectionString"];
             });
 
-
+            services.AddAutoMapper();
             //DI Sql Data
             services.AddTransient<IDataRepository, DataRepository>();
         }
