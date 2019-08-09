@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{DD88CE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "momo.Entity", "momo.Entity\momo.Entity.csproj", "{06F5EF0F-E521-4362-BB9C-76380B477F9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit_momo", "XUnit_momo\XUnit_momo.csproj", "{982ACBB7-CFDD-41AB-9B4B-142906A7E214}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{06F5EF0F-E521-4362-BB9C-76380B477F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F5EF0F-E521-4362-BB9C-76380B477F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06F5EF0F-E521-4362-BB9C-76380B477F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982ACBB7-CFDD-41AB-9B4B-142906A7E214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982ACBB7-CFDD-41AB-9B4B-142906A7E214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982ACBB7-CFDD-41AB-9B4B-142906A7E214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982ACBB7-CFDD-41AB-9B4B-142906A7E214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace momo.Controllers.v1
 {
     [ApiVersion("1.0")]
+    [Authorize("Permission")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class DefaultController : ControllerBase
@@ -17,8 +19,20 @@ namespace momo.Controllers.v1
         /// </summary>
         /// <returns></returns>
         // GET: api/Default
-        [HttpGet]
+        [HttpGet("Get")]
+        [Authorize]
         public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        /// <summary>
+        /// 获取样例数据
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/Default
+        [HttpGet("Get2")]
+        public IEnumerable<string> Get2()
         {
             return new string[] { "value1", "value2" };
         }

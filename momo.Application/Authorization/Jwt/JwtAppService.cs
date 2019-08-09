@@ -77,7 +77,7 @@ namespace momo.Application.Authorization.Jwt
             //将用户信息添加到 Claim 中
             var identity = new ClaimsIdentity(JwtBearerDefaults.AuthenticationScheme);
 
-              IEnumerable<Claim> claims = new Claim[] {
+            IEnumerable<Claim> claims = new Claim[] {
               new Claim(ClaimTypes.Name,dto.UserName),
               new Claim(ClaimTypes.Role,dto.Role.ToString()),
               new Claim(ClaimTypes.Email,dto.Email),
@@ -92,8 +92,6 @@ namespace momo.Application.Authorization.Jwt
             var principal = new ClaimsPrincipal(identity);
             //签发一个加密后的用户信息凭证，用来标识用户的身份
             _httpContextAccessor.HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, principal, authProperties);
-
-            //var e= _httpContextAccessor.HttpContext.RequestServices.GetService(typeof(IAuthenticationService));
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -119,6 +117,7 @@ namespace momo.Application.Authorization.Jwt
 
             return jwt;
         }
+
 
         /// <summary>
         /// token刷新

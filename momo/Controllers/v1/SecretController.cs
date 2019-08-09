@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using momo.Application.Authorization.Jwt;
 using momo.Application.Authorization.Jwt.Dto;
 using momo.Application.Authorization.Secret;
@@ -84,16 +89,16 @@ namespace momo.Controllers.v1
         public async Task<IActionResult> LoginAsync([FromBody] SecretDto dto)
         {
             //Todo：获取用户信息
-            //var user = new UserDto
-            //{
-            //    Id = Guid.NewGuid(),
-            //    UserName = "yuiter",
-            //    Role = Guid.Empty,
-            //    Email = "yuiter@yuiter.com",
-            //    Phone = "13912345678",
-            //};
+            var user = new UserDto
+            {
+                Id = Guid.NewGuid(),
+                UserName = "yuiter",
+                Role = Guid.Empty,
+                Email = "yuiter@yuiter.com",
+                Phone = "13912345678",
+            };
 
-           var user = await _secretApp.GetCurrentUserAsync(dto.Account, dto.Password);
+            //var user = await _secretApp.GetCurrentUserAsync(dto.Account, dto.Password);
 
             if (user == null)
                 return Ok(new JwtResponseDto
@@ -131,6 +136,8 @@ namespace momo.Controllers.v1
         [HttpPost("refresh")]
         public async Task<IActionResult> RefreshAccessTokenAsync([FromBody] SecretDto dto)
         {
+
+            var auth = HttpContext.AuthenticateAsync().Result.Principal.Claims;
             //Todo：获取用户信息
             //var user = new UserDto
             //{

@@ -41,8 +41,12 @@ namespace momo.Application.Authorization.Secret
             var user = await _secret.GetUserForLoginAsync(account, password);
 
             //Todo：AutoMapper 做实体转换
-
-            return null;
+            var userDto = new UserDto()
+            {
+                UserName = user.Name,
+                Id = user.Id
+            };
+            return userDto;
         }
 
         #endregion

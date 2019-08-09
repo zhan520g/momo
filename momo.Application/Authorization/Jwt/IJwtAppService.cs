@@ -48,5 +48,6 @@ namespace momo.Application.Authorization.Jwt
         /// </summary>
         /// <returns></returns>
         Task DeactivateAsync(string token);
+
     }
 }

@@ -41,6 +41,8 @@ namespace momo.Handles
         /// <returns></returns>
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, PolicyRequirement requirement)
         {
+
+         
             //Todo：获取角色、Url 对应关系
             List<Menu> list = new List<Menu> {
                 new Menu
@@ -61,6 +63,7 @@ namespace momo.Handles
             };
 
             var httpContext = (context.Resource as AuthorizationFilterContext).HttpContext;
+            var isAuthenticated = httpContext.User.Identity.IsAuthenticated;
 
             //获取授权方式
             var defaultAuthenticate = await Schemes.GetDefaultAuthenticateSchemeAsync();
