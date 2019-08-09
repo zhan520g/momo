@@ -25,10 +25,10 @@ namespace XUnit_momo
             // Arrange
             var mockObject = new Mock<ISecretDomain>();
             IdentityUser user = new IdentityUser();
-            user.Name = "zs";
             user.Id = new System.Guid();
-            user.Password = "222";
-            user.Account = "222";
+            user.Name = "zs";
+        
+          
             string account = "zs";
             string password = "123456";
             mockObject.Setup(domian => domian.GetUserForLoginAsync(account, password)).Returns(System.Threading.Tasks.Task.FromResult(user));
