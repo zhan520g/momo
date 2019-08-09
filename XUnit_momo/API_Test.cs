@@ -10,14 +10,15 @@ using Xunit.Abstractions;
 
 namespace XUnit_momo
 {
-    //真实模式
-    public class Hello
+    ///真实模式API测试  
+    
+    public class API_Test
     {
         public HttpClient Client { get; }
 
         public ITestOutputHelper Output { get; }
 
-        public Hello(ITestOutputHelper outputHelper)
+        public API_Test(ITestOutputHelper outputHelper)
         {
             var server = new TestServer(WebHost.CreateDefaultBuilder()
             .UseStartup<Startup>());
