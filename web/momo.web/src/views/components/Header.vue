@@ -60,9 +60,9 @@ export default {
   data() {
     return {
       fullscreen: false,
-      name: "linxin",
+      name: "bug",
       message: 2,
-      username: "zyh"
+      username: "zc"
     };
   },
   computed: {
