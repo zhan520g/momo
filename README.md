@@ -7,4 +7,5 @@ ORM：Dapper</br>
 前端框架：Vue.js + Element UI</br>
 日志记录：nlog + MongoDB</br>
 生产环境:  docker部署</br>
-单元测试: XUnit
+单元测试: XUnit+Mod </br>
+开发工具: VS2017+Git
