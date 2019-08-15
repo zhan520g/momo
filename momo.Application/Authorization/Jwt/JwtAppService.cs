@@ -17,6 +17,9 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace momo.Application.Authorization.Jwt
 {
+    /// <summary>
+    /// JSON WEB TOKEN
+    /// </summary>
     public class JwtAppService : IJwtAppService
     {
         #region Initialize

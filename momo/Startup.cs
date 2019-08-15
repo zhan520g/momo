@@ -81,7 +81,7 @@ namespace momo
             services.AddSingleton<IAuthorizationHandler, PolicyHandler>();
             #endregion
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvcCore().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonFormatters();
             services.AddSwaggerGen(s =>
             {
 

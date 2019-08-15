@@ -28,6 +28,9 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+
+Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：
+
 |-- momo.web 
   |-- .gitignore            //git项目忽视文件
   |-- babel.config.js       //babel 配置文件
@@ -35,13 +38,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   |-- package.json          //包的类型
   |-- README.md 
   |-- public                //项目打包后的目录
-  |   |-- favicon.ico
-  |   |-- index.html        //挂载页面
+  |   |-- favicon.ico       //浏览器tag图标
+  |   |-- index.html        //SPA的挂载页面 —— Index.html
   |-- src                   //项目开发目录
-      |-- App.vue           //主入口文件
-      |-- main.js           //主入口文件
-      |-- router.js         //vue-router文件
-      |-- store.js          //vuex 状态管理
+      |-- App.vue           //App入口文件---App.vue —— 页面所有路由对应组件的容器
+      |-- main.js           //主配置文件--- main.js —— 入口文件，初始化vue实例并使用需要的插件
+      |-- router.js         //vue-router文件--- router.js —— 路由文件，配置着 url 路径 和 页面的关系
+      |-- store.js          //vuex 状态管理 ----Vuex store配置文件
       |-- assets //静态文件
          |-- logo.png
       |-- components        //组件存放目录

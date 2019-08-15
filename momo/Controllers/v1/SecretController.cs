@@ -86,7 +86,7 @@ namespace momo.Controllers.v1
         /// <param name="dto">授权用户信息</param>
         [HttpPost("token")]
         [AllowAnonymous]
-        public async Task<IActionResult> LoginAsync([FromBody] SecretDto dto)
+        public async Task<IActionResult> LoginAsync(SecretDto dto)
         {
             //Todo：获取用户信息
             //var user = new UserDto
