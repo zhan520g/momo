@@ -8,6 +8,9 @@ using Xunit.Abstractions;
 
 namespace XUnit_momo
 {
+    /// <summary>
+    /// 基于Moq框架测试业务逻辑
+    /// </summary>
     public class Mock_Test
     {
         ITestOutputHelper testOutputHelper;
