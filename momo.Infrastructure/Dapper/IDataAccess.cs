@@ -1,9 +1,4 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file= "IDataAccess.cs">
-//     Copyright (c) Danvic712. All rights reserved.
-// </copyright>
-// Author: Danvic712
-// Created DateTime: 2019/1/10 11:16:26 
 // Modified by:
 // Description: 数据层访问接口
 //-----------------------------------------------------------------------
