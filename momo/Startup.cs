@@ -189,6 +189,8 @@ namespace momo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
+            //record interface call time;
+            app.UsePerformanceLog();
 
             //Enable Authentication
             app.UseAuthentication();

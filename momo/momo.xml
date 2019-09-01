@@ -92,6 +92,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:momo.Controllers.ValuesController">
+            <summary>
+            样例
+            </summary>
+        </member>
+        <member name="M:momo.Controllers.ValuesController.Get">
+            <summary>
+            获取接口类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:momo.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            根据id获取接口
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="P:momo.Handles.PolicyHandler.Schemes">
             <summary>
             授权方式（cookie, bearer, oauth, openid）
@@ -147,6 +165,20 @@
             调用中间件
             </summary>
             <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:momo.Middleware.PerformanceLogExtension.UsePerformanceLog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            调用中间件
+            </summary>
+            <param name="applicationBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:momo.Middleware.PerformanceLogMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            注入中间件到HttpContext中
+            </summary>
+            <param name="context"></param>
             <returns></returns>
         </member>
     </members>

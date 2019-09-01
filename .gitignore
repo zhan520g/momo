@@ -71,7 +71,7 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
-*.config
+
 
 # Chutzpah Test files
 _Chutzpah*
@@ -285,3 +285,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+*.config

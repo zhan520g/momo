@@ -23,7 +23,7 @@ namespace momo.Controllers.v2
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Default2/5
+        // GET: api/Default2/5  
         [HttpGet("{id}", Name = "Get2")]
         public string Get(int id)
         {
