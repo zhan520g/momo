@@ -101,20 +101,19 @@
             <ul>
               <li class="accout">我的账户</li>
               <li class="tou">
-                <img src="../../assets/img/tou.jpg">
+                <img src="../../assets/img/dog.png">
                 <br>
                 <span>
-                  zyh
+                  zc
                   <br>
                   <span>超级管理员</span>
                 </span>
               </li>
-              <li class="mobile">手机号：18111111111</li>
-              <!-- <li class="username">用户名：zyh</li> -->
+              <li class="mobile">手机号：17111111111</li>
               <li class="time">系统版本：1.0.0</li>
               <li class="time">天气：晴</li>
-              <li class="time">当前时间：2019-03-05</li>
-              <li class="time">上次登陆：2019-03-05</li>
+              <li class="time">当前时间：2019-09-03</li>
+              <li class="time">上次登陆：2019-09-03</li>
             </ul>
           </div>
         </div>

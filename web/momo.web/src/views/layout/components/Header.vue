@@ -81,7 +81,8 @@ export default {
     },
     // 用户名下拉菜单选择事件
     logout(command) {
-      this.$store.commit('TAGES_LIST',[])
+      this.$store.commit('COMMIT_TOKEN','')
+       this.$store.commit('TAGES_LIST',[])
       this.$store.commit('SET_BREAD',['home'])
       this.$router.push("/login");
     },

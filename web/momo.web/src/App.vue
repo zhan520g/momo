@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <router-view></router-view> //这里就是组件用来渲染的地方
+      <router-view></router-view>  
   </div>
 </template>
 

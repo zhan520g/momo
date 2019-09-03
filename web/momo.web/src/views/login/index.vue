@@ -20,7 +20,7 @@
               <el-input type="password" v-model="ruleForm2.password" autocomplete="off" show-password></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+              <el-button type="primary" @click="submitForm('ruleForm2')">进入</el-button>
               <el-button @click="resetForm('ruleForm2')">重置</el-button>
             </el-form-item>
             </el-form>
@@ -109,7 +109,7 @@ export default {
   height: 100%;
 }
 .login-container {
-  background: #2d3a4b;
+  background:#5586c6;
   width: 100%;
   height: 100%;
   position: fixed;

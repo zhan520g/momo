@@ -55,7 +55,17 @@
             {
               icon: "el-icon-edit-outline",
               index: "icon",
-              title: "自定义图标"
+              title: "图标展示",
+              subs:[
+                {
+                     index:"element",
+                     title:"饿了吗图标",
+                },
+                {
+                  index:"iconfont",
+                  title:"icon图标",
+                }
+              ]
             },
             {
               icon: "el-icon-edit-outline",
@@ -118,7 +128,7 @@
             },
             {
               icon: "el-icon-edit-outline",
-              index: "7",
+              index: "error",
               title: "错误处理",
               subs: [
                 {
@@ -128,6 +138,10 @@
                 {
                   index: "404",
                   title: "404页面"
+                },
+                {
+                  index: "403",
+                  title: "403页面"
                 }
               ]
             },

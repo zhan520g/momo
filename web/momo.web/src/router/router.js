@@ -12,7 +12,6 @@ Vue.use(Router)
     */
    const getComponent = (name,component) => () => import(`@/views/${name}/${component}.vue`);
 
-
 const myRouter=new Router({
   routes: [
     {
@@ -35,38 +34,46 @@ const myRouter=new Router({
         meta:{title:'首页'}
       },
       {
-        path:'/icon',
-        component: getComponent('icons','index'),
-        name:'icon',
-        meta:{title:'自定义图标'}
+        path: '/element',
+        component: getComponent('icons', 'elementIcom'),
+        meta: {
+            title: '饿了吗图标'
+        }
+      },
+     {
+        path: '/iconfont',
+        component: getComponent('icons', 'iconfont'),
+        meta: {
+            title: 'icon图标'
+        }
       },
       {
         path:'/editor',
-        component: getComponent('component','editor'),
+        component: getComponent('components','editor'),
         name:'editor',
         meta:{title:'富文本编译器'}
       },
       {
         path:'/countTo',
-        component: getComponent('component','countTo'),
+        component: getComponent('components','countTo'),
         name:'countTo',
         meta:{title:'数字滚动'}
       },
       {
         path:'/tree',
-        component: getComponent('component','tree'),
+        component: getComponent('components','tree'),
         name:'tree',
         meta:{title:'自定义树'}
       },
       {
         path:'/treeTable',
-        component: getComponent('component','treeTable'),
+        component: getComponent('components','treeTable'),
         name:'treeTable',
         meta:{title:'表格树'}
       },
       {
         path:'/treeSelect',
-        component: getComponent('component','treeSelect'),
+        component: getComponent('components','treeSelect'),
         name:'treeSelect',
         meta:{title:'下拉树'}
       },
@@ -87,6 +94,24 @@ const myRouter=new Router({
         component: getComponent('charts','cricle'),
         name:'cricle',
         meta:{title:'饼图'}
+      },
+      {
+        path:'/permission',
+        component: getComponent('permission','permission'),
+        name:'permission',
+        meta:{title:'权限测试'}
+      },
+      {
+        path:'/403',  //title和path保持一致
+        component: getComponent('error','403'),
+        name:'403',
+        meta:{title:'403错误'}
+      },
+      {
+        path:'/404',
+        component: getComponent('error','404'),
+        name:'404',
+        meta:{title:'404错误'}
       },
     ]
     }
