@@ -9,11 +9,11 @@ import en from "./en";
 Vue.use(VueI18n);
 
 const messages = {
-  zh: {
+  zh: {  // 中文语言包
     ...zh,
     ...elZh
   },
-  en: {
+  en: {   // 英文语言包
     ...en,
     ...elEn
   }

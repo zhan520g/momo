@@ -93,16 +93,15 @@ const myRouter=new Router({
   ]
 })
 
- 
-
-     /*判断是否存在token,目前没有token,先禁掉
+     //判断是否存在token,目前没有token,先禁掉
      myRouter.beforeEach((to,from,next)=>{
-      NProgress.start()
-      if (to.path !== '/login' && !store.state.token) {
-          next('/login')    //跳转登陆
-          NProgress.done() // 结束Progress
+      NProgress.start();
+      if (to.path !== '/login' && store.state.token=='') {
+         NProgress.done(); // 结束Progress
+         next('/login');    //跳转登陆
       } else {
-          next();
+         NProgress.done(); // 结束Progress
+         next();
       }
       if (to.meta.roles) {
           to.meta.roles.includes(...store.getters.roles) ? next() : next('/404')
@@ -110,6 +109,5 @@ const myRouter=new Router({
           next();
       }
     })
-    */
     export default myRouter
 

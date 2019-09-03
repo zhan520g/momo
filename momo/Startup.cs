@@ -35,6 +35,18 @@ namespace momo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // 注册CORS服务
+            services.AddCors(options =>
+            {
+                options.AddPolicy("any", builder =>
+                {
+                    builder.AllowAnyOrigin() //允许任何来源的主机访问
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();//指定处理cookie
+                });
+            });
+
             #region  授权服务
             string issuer = Configuration["Jwt:Issuer"];
             string audience = Configuration["Jwt:Audience"];
@@ -205,6 +217,9 @@ namespace momo
                 app.UseHsts();
             }
 
+            // 启用CORS服务,必须放在mvc前面
+            app.UseCors("any");
+
             app.UseHttpsRedirection();
             app.UseMvc();
 
@@ -223,6 +238,8 @@ namespace momo
                         $"momo API {description.GroupName.ToUpperInvariant()}");
                 }
             });
+
+        
         }
     }
 }

@@ -34,7 +34,7 @@ const en={
         closeOthers:'close others'
     },
     login:{
-        system:'Management System',
+        system:'Easy System',
         password:'Password',
         username:'Username'
     }

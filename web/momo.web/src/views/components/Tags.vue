@@ -9,7 +9,7 @@
           :key="index"
           :class="{'active': isActive(item.path)}"
         >
-          <router-link :to="item.path" class="tags-li-title">{{$t('route.'+item.title)}}</router-link>
+          <router-link :to="item.path" class="tags-li-title">{{$t(item.title)}}</router-link>
           <span class="tags-li-icon" @click="closeTags(index,item.path)">
             <i class="el-icon-close"></i>
           </span>
@@ -57,7 +57,7 @@ export default {
     }
   },
   watch: {
-    //监听路由变化
+    //监听路由变化, 监听 是个很重要的东西，响应很多变化
     $route(newValue, oldValue) {
       this.setTags(newValue);
     }
@@ -84,6 +84,7 @@ export default {
       });
       //不存在
       if (!isIn) {
+        console.log(route.meta.title);
         this.tagsList.push({
           title: route.meta.title,
           path: route.fullPath,

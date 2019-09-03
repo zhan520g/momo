@@ -9,7 +9,7 @@ namespace momo.Application.Authorization.Secret.Dto
         /// <summary>
         /// 账号名
         /// </summary>
-        public string Account { get; set; }
+        public string UserName { get; set; }
         /// <summary>
         /// 密码
         /// </summary>

@@ -33,7 +33,7 @@ const zh={
         closeOthers:'关闭其他'
     },
     login:{
-        system:'后台管理系统',
+        system:'大蘑菇赛马场',
         password:'密码',
         username:'用户名'
     }

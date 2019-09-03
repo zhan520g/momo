@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,7 @@ namespace momo.Controllers.v1
     [ApiVersion("1.0")]
     [Authorize(Policy = "Permission")]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [EnableCors("any")]
     public class SecretController : ControllerBase
     {
         #region Initialize
@@ -97,17 +99,17 @@ namespace momo.Controllers.v1
             //    Email = "yuiter@yuiter.com",
             //    Phone = "13912345678",
             //};
-
-            var user = await _secretApp.GetCurrentUserAsync(dto.Account, dto.Password);
+            var user = await _secretApp.GetCurrentUserAsync(dto.UserName, dto.Password);
 
             if (user == null)
                 return Ok(new JwtResponseDto
                 {
-                    Access = "无权访问",
+                    Access = "用户不存在,无权访问",
                     Type = "Bearer",
+                    err_code = 1,
                     Profile = new Profile
                     {
-                        Name = dto.Account,
+                        Name = dto.UserName,
                         Auths = 0,
                         Expires = 0
                     }
@@ -119,6 +121,7 @@ namespace momo.Controllers.v1
             {
                 Access = jwt.Token,
                 Type = "Bearer",
+                err_code=0,
                 Profile = new Profile
                 {
                     Name = user.UserName,
@@ -147,16 +150,17 @@ namespace momo.Controllers.v1
             //    Email = "yuiter@yuiter.com",
             //    Phone = "13912345678",
             //};
-            var user = await _secretApp.GetCurrentUserAsync(dto.Account, dto.Password);
+            var user = await _secretApp.GetCurrentUserAsync(dto.UserName, dto.Password);
 
             if (user == null)
                 return Ok(new JwtResponseDto
                 {
                     Access = "无权访问",
                     Type = "Bearer",
+                    err_code = 1,
                     Profile = new Profile
                     {
-                        Name = dto.Account,
+                        Name = dto.UserName,
                         Auths = 0,
                         Expires = 0
                     }
@@ -167,6 +171,7 @@ namespace momo.Controllers.v1
             return Ok(new JwtResponseDto
             {
                 Access = jwt.Token,
+                err_code = 0,
                 Type = "Bearer",
                 Profile = new Profile
                 {

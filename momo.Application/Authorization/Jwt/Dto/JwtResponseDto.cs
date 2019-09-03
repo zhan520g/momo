@@ -6,6 +6,8 @@ namespace momo.Application.Authorization.Jwt.Dto
 {
     public class JwtResponseDto
     {
+
+        public int err_code { get; set; }
         /// <summary>
         /// 访问 Token 值
         /// </summary>
@@ -20,6 +22,8 @@ namespace momo.Application.Authorization.Jwt.Dto
         /// 个人信息
         /// </summary>
         public Profile Profile { get; set; }
+
+
     }
 
     /// <summary>
