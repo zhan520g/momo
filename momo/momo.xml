@@ -92,24 +92,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:momo.Controllers.ValuesController">
-            <summary>
-            样例
-            </summary>
-        </member>
-        <member name="M:momo.Controllers.ValuesController.Get">
-            <summary>
-            获取接口类
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:momo.Controllers.ValuesController.Get(System.Int32)">
-            <summary>
-            根据id获取接口
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="P:momo.Handles.PolicyHandler.Schemes">
             <summary>
             授权方式（cookie, bearer, oauth, openid）

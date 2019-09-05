@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Commands>
+  <Command Name="Sys_GetAllUserInfoAsync">
+      <![CDATA[
+      SELECT ID,NAME,ACCOUNT,PASSWORD,SALT FROM IDENTITYUSER
+      ]]>
+    </Command>
+  <Command Name="Sys_AddUserInfoAsync">
+    <![CDATA[
+     insert into IDENTITYUSER(ID,NAME,ACCOUNT,PASSWORD,SALT) values(@Id,@Name,@Account,@Password,@Salt)
+    ]]>
+  </Command>
+  
+  <Command Name="Sys_ModifyUserAsync">
+    <![CDATA[
+     update IDENETITYUSER set Name=@Name and PASSWORD=@Password  where ID=@guid
+    ]]>
+  </Command>
+
+  <Command  Name="Sys_DeleteUserAsync">
+    <![CDATA[
+    delete IDENTITYUSER where ID=@guid
+    ]]>
+  </Command>
+</Commands>

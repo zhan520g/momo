@@ -77,9 +77,10 @@ namespace momo.Application.Authorization.Jwt
             DateTime authTime = DateTime.UtcNow;
             DateTime expiresAt = authTime.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpireMinutes"]));
 
-            //将用户信息添加到 Claim 中
+            //将用户信息添加到 Claim 中,制作身份证
             var identity = new ClaimsIdentity(JwtBearerDefaults.AuthenticationScheme);
 
+            //添加用户信息
             IEnumerable<Claim> claims = new Claim[] {
               new Claim(ClaimTypes.Name,dto.UserName),
               new Claim(ClaimTypes.Role,dto.Role.ToString()),
@@ -92,6 +93,8 @@ namespace momo.Application.Authorization.Jwt
                 AllowRefresh = true,
                 ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24),//24
             };
+
+            //制作
             var principal = new ClaimsPrincipal(identity);
             //签发一个加密后的用户信息凭证，用来标识用户的身份
             _httpContextAccessor.HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, principal, authProperties);
@@ -102,7 +105,7 @@ namespace momo.Application.Authorization.Jwt
                 Issuer = _configuration["Jwt:Issuer"],//Jwt token 的签发者
                 Audience = _configuration["Jwt:Audience"],//Jwt token 的接收者
                 Expires = expiresAt,//过期时间
-                SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256)//创建 token
+                SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256)//创建 token,使用的hash算法，如：HMAC SHA256或RSA
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

@@ -30,5 +30,5 @@ new Vue({
   i18n,
   router,
   store,
-  render: h => h(App)
+  render: h => h(App)  //Vue的渲染逻辑——Render函数 , 渲染App这个元素
 }).$mount('#app')

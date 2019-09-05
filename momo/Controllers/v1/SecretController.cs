@@ -107,7 +107,7 @@ namespace momo.Controllers.v1
                     Access = "用户不存在,无权访问",
                     Type = "Bearer",
                     err_code = 1,
-                    Profile = new Profile
+                    Data = new Profile
                     {
                         Name = dto.UserName,
                         Auths = 0,
@@ -122,7 +122,7 @@ namespace momo.Controllers.v1
                 Access = jwt.Token,
                 Type = "Bearer",
                 err_code=0,
-                Profile = new Profile
+                Data = new Profile
                 {
                     Name = user.UserName,
                     Auths = jwt.Auths,
@@ -158,7 +158,7 @@ namespace momo.Controllers.v1
                     Access = "无权访问",
                     Type = "Bearer",
                     err_code = 1,
-                    Profile = new Profile
+                    Data = new Profile
                     {
                         Name = dto.UserName,
                         Auths = 0,
@@ -173,7 +173,7 @@ namespace momo.Controllers.v1
                 Access = jwt.Token,
                 err_code = 0,
                 Type = "Bearer",
-                Profile = new Profile
+                Data = new Profile
                 {
                     Name = user.UserName,
                     Auths = jwt.Success ? jwt.Auths : 0,

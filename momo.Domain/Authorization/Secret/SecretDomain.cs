@@ -28,6 +28,7 @@ namespace momo.Domain.Authorization.Secret
 
         #endregion
 
+
         #region API Implements
 
         /// <summary>
@@ -38,8 +39,8 @@ namespace momo.Domain.Authorization.Secret
         /// <returns></returns>
         public async Task<IdentityUser> GetUserForLoginAsync(string account, string password)
         {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append(_repository.GetCommandSQL("Secret_GetUserByLoginAsync"));
+           
+            string strSql=_repository.GetCommandSQL("Secret_GetUserByLoginAsync");
             string sql = strSql.ToString();
 
             return await DBManager.MsSQL.ExecuteAsync<IdentityUser>(sql, new

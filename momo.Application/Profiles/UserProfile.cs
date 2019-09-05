@@ -15,7 +15,12 @@ namespace momo.Application.Profiles
                 .ForMember(dest=>dest.Role,opt=>opt.MapFrom(src=>src.Salt))
                 .ForMember(dest=>dest.Email,opt=>opt.MapFrom(src=>src.Account))
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
-            CreateMap<UserDto, IdentityUser>().ForMember(dest => dest.Name,opt=>opt.MapFrom(src=>src.UserName)) ;
+
+            CreateMap<UserDto, IdentityUser>().ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.UserName))
+                .ForMember(dest => dest.Account, opt => opt.MapFrom(src => src.UserName))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password));
+
+
         }
     }
 }

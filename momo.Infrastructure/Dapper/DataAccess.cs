@@ -247,8 +247,9 @@ namespace momo.Infrastructure.Dapper
                 {
                     try
                     {
-                        if (commandType == CommandType.Text)
+                        if (commandType == CommandType.Text) 
                         {
+                            //直接用connection查询
                             obj = await connection.QueryFirstOrDefaultAsync<T>(sql, param, null, null, CommandType.Text);
                         }
                         else
@@ -265,6 +266,7 @@ namespace momo.Infrastructure.Dapper
             return obj;
         }
 
+       
         /// <summary>
         /// 执行SQL语句返回对象
         /// </summary>
@@ -415,14 +417,14 @@ namespace momo.Infrastructure.Dapper
         public async Task<IList<T>> ExecuteIListAsync<T>(string sql, object param, bool hasTransaction = false, CommandType commandType = CommandType.Text)
         {
             IList<T> list = null;
-            using (var connection = DbConnection())
+            using (var connection = DbConnection()) //连接
             {
-                if (connection.State == ConnectionState.Closed)
+                if (connection.State == ConnectionState.Closed) //判断是否连接
                 {
                     connection.Open();
                 }
 
-                if (hasTransaction)
+                if (hasTransaction) //是否通过事务执行
                 {
                     using (IDbTransaction transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted))
                     {
@@ -452,7 +454,7 @@ namespace momo.Infrastructure.Dapper
                 {
                     try
                     {
-                        if (commandType == CommandType.Text)
+                        if (commandType == CommandType.Text) //命令为文本
                         {
                             var data = await connection.QueryAsync<T>(sql, param, null, null, CommandType.Text);
                             list = data.ToList();

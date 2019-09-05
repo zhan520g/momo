@@ -84,7 +84,6 @@ export default {
       });
       //不存在
       if (!isIn) {
-        console.log(route.meta.title);
         this.tagsList.push({
           title: route.meta.title,
           path: route.fullPath,

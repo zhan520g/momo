@@ -77,12 +77,9 @@ export default {
            login(this.ruleForm2)
           .then(res => {
               //提交数据到vuex
-              console.log("进来登陆页面");
-              console.log(res.access);
               this.$store.commit("COMMIT_TOKEN",res.access);
               this.$message('success',res.err_code);
 
-              console.log(this.$store.state.token);
               this.$router.push({
                  path: "/"
                });

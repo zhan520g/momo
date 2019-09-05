@@ -35,8 +35,6 @@ namespace momo.Application.Authorization.Secret
             _secret = secret;
         }
 
-
-
         #endregion
 
         #region API Implements

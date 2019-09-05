@@ -145,6 +145,17 @@
                 }
               ]
             },
+            {
+              icon: "el-icon-edit-outline",
+              index: "system",
+              title: "系统管理",
+              subs: [
+                {
+                  index: "user",
+                  title: "用户管理"
+                }
+              ]
+            }
           ]
         };
       },

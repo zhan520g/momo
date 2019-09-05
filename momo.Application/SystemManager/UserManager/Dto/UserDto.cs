@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 
-namespace momo.Application.Authorization.Secret.Dto
+namespace momo.Application.SystemManager.UserManager.Dto
 {
     public class UserDto
     {

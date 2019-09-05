@@ -32,6 +32,8 @@ namespace momo
 
         public IConfiguration Configuration { get; }
 
+
+        //这就是一个容器,所有注册的依赖都注入到这里面
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {

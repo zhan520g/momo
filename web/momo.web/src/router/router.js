@@ -102,7 +102,7 @@ const myRouter=new Router({
         meta:{title:'权限测试'}
       },
       {
-        path:'/403',  //title和path保持一致
+        path:'/403',  //name和path保持一致
         component: getComponent('error','403'),
         name:'403',
         meta:{title:'403错误'}
@@ -112,6 +112,12 @@ const myRouter=new Router({
         component: getComponent('error','404'),
         name:'404',
         meta:{title:'404错误'}
+      },
+      {
+        path:'/user',
+        component: getComponent('systemManager','user'),
+        name:'user',
+        meta:{title:'用户管理'}
       },
     ]
     }

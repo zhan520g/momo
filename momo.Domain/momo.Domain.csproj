@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Authorization\Secret\Repository\SecretApp.xml" />
+    <EmbeddedResource Include="SystemManager\UseManager\Repository\UserApp.xml" />
   </ItemGroup>
 
   <ItemGroup>

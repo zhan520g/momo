@@ -6,7 +6,9 @@ namespace momo.Application.Authorization.Jwt.Dto
 {
     public class JwtResponseDto
     {
-
+        /// <summary>
+        /// 0 标识正常, 1标识错误, 2标识异常
+        /// </summary>
         public int err_code { get; set; }
         /// <summary>
         /// 访问 Token 值
@@ -19,10 +21,9 @@ namespace momo.Application.Authorization.Jwt.Dto
         public string Type { get; set; } = "Bearer";
 
         /// <summary>
-        /// 个人信息
+        /// 获取的数据
         /// </summary>
-        public Profile Profile { get; set; }
-
+        public object Data { get; set; }
 
     }
 
